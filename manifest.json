@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Automatic Remotask for Bulba Eval Chat",
+    "version": "1.1",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.remotasks.com/tasks"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ]
+}
