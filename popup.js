@@ -44,10 +44,21 @@ const process_problem = () => {
             }
         });
         const estimation_ele = element.querySelector("input.MuiInputBase-input.MuiOutlinedInput-input");
-        estimation_ele.value = "30";
+        if (estimation_ele.value == "3") {
+            estimation_ele.value = "30";
+        } else {
+            estimation_ele.value = "3";
+        }
         estimation_ele.dispatchEvent(changeEvent);
 
-        element.querySelector("button").dispatchEvent(clickEvent);
+        const save_btn = element.querySelector("button");
+        const watch_btn_interval = setInterval(() => {
+            if (save_btn.disabled) {
+                return;
+            }
+            clearInterval(watch_btn_interval);
+            save_btn.dispatchEvent(clickEvent);
+        }, 1000);
     };
 
     const prompt_ele = document.querySelector("div.flex.flex-col.gap-1.w-full>div>div.prose.prose-neutral.prose-sm.max-w-none");
